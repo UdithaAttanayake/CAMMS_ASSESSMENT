@@ -1,0 +1,151 @@
+@import "./variables";
+@import "./grid";
+
+  // Colour column rows
+  
+  [class*="col-"], .col {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: #eee;
+    background-color: rgba(86,61,124,.15);
+    border: 1px solid #ddd;
+    border: 1px solid rgba(86,61,124,.2);
+  }
+  
+  // Examples.  
+  
+  // Create rows
+  .three-equal-columns,
+  .three-unequal-columns,
+  .two-columns,
+  .two-columns-with-two-nested-columns,
+  .mixed-mobile-and-desktop,
+  .mixed-mobile-tablet-and-desktop,
+  .offset-push-and-pull-resets {
+  
+    @include make-row;
+  
+  }
+  
+  // Define columns. 
+  // In a real app your classes should be sematic in that they would describe what you are laying out. 
+  // If you use smart common classes you can end up writing minimal grid rules. 
+  
+  .three-equal-columns {
+    
+    .col {
+      @include make-md-column(4);
+    }
+  
+  }
+  
+  .three-unequal-columns {
+  
+    .col-3 {
+      @include make-md-column(3);
+    }
+  
+    .col-6 {
+      @include make-md-column(6);
+    }
+  
+  }
+  
+  .two-columns {
+  
+    .col-4 {
+      @include make-md-column(4);
+    }
+  
+    .col-8 {
+      @include make-md-column(8);
+    }
+    
+  }
+  
+  .two-columns-with-two-nested-columns {
+  
+    .col-8 {
+      @include make-md-column(8);
+    }
+  
+    .col-6 {
+      @include make-md-column(6);
+    }
+  
+    .col-4 {
+      @include make-md-column(4);
+    }
+  
+  }
+  
+  .mixed-mobile-and-desktop {
+  
+    // When you have rules for multiple breakpoints define the smaller screen first.
+    .col-large {
+      @include make-xs-column(12);
+      @include make-md-column(8);
+    }
+  
+    .col-medium {
+      @include make-xs-column(6);
+    }
+  
+    .col-small {
+      @include make-xs-column(6);
+      @include make-md-column(4);
+    }
+  
+  }
+  
+  .mixed-mobile-tablet-and-desktop {
+  
+    .col-one {
+      @include make-xs-column(12);
+      @include make-sm-column(6);
+      @include make-lg-column(8);
+    }
+  
+    .col-two {
+      @include make-xs-column(6);
+      @include make-lg-column(4);
+    }
+  
+    .col-three {
+      @include make-xs-column(6);
+      @include make-sm-column(4);
+    }
+  
+  }
+  
+  .offset-push-and-pull-resets {
+  
+    .col-one {
+      @include make-sm-column(5);
+      @include make-md-column(6);
+    }
+  
+    .col-two {
+      @include make-sm-column(5);
+      @include make-sm-column-offset(2);
+      @include make-md-column(6);
+      @include make-md-column-offset(0);
+      
+    }
+  
+    .col-three {
+      @include make-sm-column(6);
+      @include make-md-column(5);
+      @include make-lg-column(6);
+    }
+  
+    .col-four {
+      @include make-sm-column(6);
+      @include make-md-column(5);
+      @include make-md-column-offset(2);
+      @include make-lg-column(6);
+      @include make-lg-column-offset(0);
+      
+    }
+  
+  }
