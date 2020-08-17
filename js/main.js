@@ -61,8 +61,8 @@ function HomeToLetsTravel(){
   // file:///E:/FRONT%20END%20DEV/Assessment%20intern%20UI_UX_02/LetsTravelWithUs/src/Index.html
       
 }
-
+/*
 function DesiredPlace(){
     window.location="http://127.0.0.1:5500/DesiredPlace/src/Index.html";
 
-}
+}*/
